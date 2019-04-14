@@ -1,0 +1,10 @@
+{
+    "/DB": {
+        "target":"http://localhost:80/Map/map",
+        "secure":false,
+        "logLevel":"debug",
+        "changeOrigin" :true
+
+    }
+
+}

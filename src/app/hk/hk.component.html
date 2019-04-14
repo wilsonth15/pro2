@@ -1,0 +1,38 @@
+<div class="col-xs-10 col-sm-10 col-lg-10" >
+    <div class="container">
+        <div class="row">
+                <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Search Result</h3>
+                            <div class="pull-right">
+                                <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+                                    <i class="glyphicon glyphicon-filter"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                        </div>
+                        <table class="table table-hover" id="dev-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>PLACE NAME:</th>
+                                    <th>TYPE</th>
+                                    <th>User's Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let da of datas">
+                                <tr>
+                                    <td>{{da.id}}</td>
+                                    <td>{{da.place}}</td>
+                                    <td>{{da.type}}</td>
+                                    <td>{{da.comment}}</td>
+                                    
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+</div>
+</div>
