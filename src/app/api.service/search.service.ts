@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse} from "@angular/common/http";
-import { Users , data, login, ComList} from './newin';
+import { Users , data, login, ComList, SelRi } from './newin';
 import { Observable } from 'rxjs';
-
 
 
 @Injectable()
 export class SearchService {
   constructor(private httpClient:HttpClient) { }
-
+  
   PHP_API_SERVER = "/DB";
-
+  insertregion( reg : SelRi ): Observable<SelRi>{
+    return this.httpClient.post<SelRi>(`${this.PHP_API_SERVER}/insertregion.php`,reg);
+  }
   read(): Observable<data[]>{
     return this.httpClient.get<data[]>(`${this.PHP_API_SERVER}/ReadCom.php`);
   }
@@ -23,4 +24,5 @@ export class SearchService {
   CreCom(list: ComList): Observable<ComList>{
     return this.httpClient.post<ComList>(`${this.PHP_API_SERVER}/CreateCom.php`, list);
   }
+
 }

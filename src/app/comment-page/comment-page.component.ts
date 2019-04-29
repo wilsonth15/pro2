@@ -4,6 +4,7 @@ import { SearchService } from '../api.service/search.service';
 import { ComList } from '../api.service/newin';
 import { FormBuilder } from '@angular/forms';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comment-page',
@@ -11,7 +12,7 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
   styleUrls: ['./comment-page.component.css']
 })
 export class CommentPageComponent implements OnInit {
-    constructor( private Comapi:SearchService, private fb:FormBuilder) {
+    constructor( private Comapi:SearchService, private fb:FormBuilder , private router: Router) {
 
    }  
     regions = [
@@ -59,7 +60,9 @@ export class CommentPageComponent implements OnInit {
     console.log(this.comdatas)
     this.Comapi.CreCom(this.comdatas).subscribe(( list:ComList )=>{
      console.log(" Comment Success! ", list);
+     
     })
+    this.router.navigateByUrl('/hk');
   }
 
 

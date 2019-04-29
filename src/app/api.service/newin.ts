@@ -20,3 +20,6 @@ export interface ComList{
     place:string;
     comment:string;
 }
+export interface SelRi{
+    reg:string;
+}

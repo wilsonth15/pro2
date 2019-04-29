@@ -1,9 +1,17 @@
 <?php
 include ("database.php");
+include ("insertregion.php");
 
+if (!$conn) {
+    die("Connection failed: " . mysql_error());
 
-$sql = "SELECT `id`,`type`,`place`,`comment` FROM `islands`";
-$result= $conn->query($sql);
+}
+else{
+
+    
+    
+    $sql = "SELECT `id`,`type`,`place`,`comment` FROM `{$region}`";
+    $result= $conn->query($sql);
 
     if ($result->num_rows> 0)
         {
@@ -24,6 +32,6 @@ $result= $conn->query($sql);
         {
             http_response_code(404);
         }
-        
+ }      
 $conn->close();
 ?>
