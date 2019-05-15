@@ -4,6 +4,7 @@ import { Users , data, login, ComList, SelRi } from './newin';
 import { Observable } from 'rxjs';
 
 
+
 @Injectable()
 export class SearchService {
   constructor(private httpClient:HttpClient) { }
@@ -24,5 +25,6 @@ export class SearchService {
   CreCom(list: ComList): Observable<ComList>{
     return this.httpClient.post<ComList>(`${this.PHP_API_SERVER}/CreateCom.php`, list);
   }
-
+  
+  
 }
