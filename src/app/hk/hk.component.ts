@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchService } from '../api.service/search.service';
 import { HttpClient } from 'selenium-webdriver/http';
 import { data } from '../api.service/newin';
+import { HomePageComponent } from 'src/app/home-page/home-page.component';
+
 @Component({
   selector: 'app-hk',
   templateUrl: './hk.component.html',
