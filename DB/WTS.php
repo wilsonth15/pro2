@@ -10,7 +10,7 @@ else{
 
  $memb=[];   
     
-    $sql = "SELECT `id`,`type`,`place`,`comment` FROM `islands`";
+    $sql = "SELECT `id`,`type`,`place`,`comment` FROM `Wong tai sin`";
     $result= $conn->query($sql);
 
     if ($result->num_rows> 0)

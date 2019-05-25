@@ -7,7 +7,7 @@ export interface login{
     logemail:string;
     logpass:string;
 }
-export interface data{
+export interface datas{
     id:number;
     place:string;
     type:string;

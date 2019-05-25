@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HkComponent } from 'src/app/hk/hk.component';
 
 import { SearchService } from '../api.service/search.service';
-import { SelRi } from '../api.service/newin';
+import {  datas } from '../api.service/newin';
 import { ChildActivationEnd } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -12,14 +13,41 @@ import { ChildActivationEnd } from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor(private api:SearchService) {}
-  region:string;
+  data: datas[];
+  error:'';
+  success:'';
+  seldata : datas = { id:null,place:null, type:null , comment:null};
+  
+  constructor(private readapi:SearchService , private httpClient:HttpClient) { }
 
   ngOnInit() {
-  }  
-  selreg(data){
-    this.region = data;
+    this.getdata();
+    
+  } 
+  getdata() {
+   this.httpClient.get('http://localhost:4200/DB/ReadCom.php').subscribe
+   ((res:any[]) => {
+    this.data = res;
+  },
+  (err) => {
+    this.error = err;
+  });
+  }
+  
+  region:string;
+
+  
+  selreg(d){ 
+    this.httpClient.get(`http://localhost:4200/DB/${d}.php`).subscribe
+    ((res:any[]) => {
+     this.data = res;
+   },
+   (err) => {
+     this.error = err;
+   });
+    
+   
+  
   }
 }
 
